@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Business;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +16,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+
+        // Running factory for businesses
+        Business::factory()->create([
+            'id' => 'a1',
+            'name' => 'Example Business',
+        ]);
+
+
         // User::factory(10)->create();
 
         User::factory()->create([
+            'business_id' => 'a1',
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+
     }
 }
